@@ -21,7 +21,6 @@ export class AuthService {
     constructor(private router: Router,
                 private http: HttpClient) {
                   let u  = new User('Michel','Buffa','Mic@gmail.com','123456789')
-                  u.roles.push('userRole');
                   u.roles.push('adminRole');
                   this.usersHeroku!.push(u);
                   
@@ -70,8 +69,9 @@ export class AuthService {
             this.userRolesHeroku = element.roles;
             this.isAuth$.next(true);
             this.router.navigate(['/assignments']);
-          }
+          }else{
             this.router.navigate(['/signup']);
+          }
         });
     }
     loginOnServer(email: string, password: string) {
