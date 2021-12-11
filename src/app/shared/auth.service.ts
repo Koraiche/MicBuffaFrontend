@@ -66,6 +66,7 @@ export class AuthService {
             this.userHeroku= element;
             this.loggedHeroku= true;
             this.userRolesHeroku = element.roles;
+            this.isAuth$.next(true);
             return;
         });
     }
