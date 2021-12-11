@@ -19,9 +19,17 @@ export class AuthService {
     userRoles!: Array<any>;
     public supplier$ = new Subject<User[]>();
     constructor(private router: Router,
-                private http: HttpClient) {}
-                isAuth(){
+                private http: HttpClient) {
+                  let u  = new User('Michel','Buffa','Mic@gmail.com','123456789')
+                  u.roles.push('userRole');
+                  u.roles.push('adminRole');
+                  this.usersHeroku!.push(u);
+                  
+                }
+                isAuth(){/*
                   if(this.token!=null) return true;
+                  return false;*/
+                  if(this.loggedHeroku)return true;
                   return false;
                 }
     createNewUserOnServer(firstName: string, lastName: string, email: string, password: string): any {
@@ -94,18 +102,22 @@ export class AuthService {
       this.router.navigate(['/login']);
     }
     isAdmin(){
-      if(!this.userId) return false;
+      /*if(!this.userId) return false;
       else{
-         if(this.userRoles.indexOf('adminRole') >= 0) return true;
+         if(this.userRolesHeroku.indexOf('adminRole') >= 0) return true;
          return false;
-      }
+      }*/
+      if(this.userRolesHeroku!.indexOf('adminRole') >= 0) return true;
+      return false;
     }
     isMerlyUser(){
-      if(!this.userId) return false;
+      /*if(!this.userId) return false;
       else{
          if(this.userRoles.indexOf('userRole') >= 0) return true;
          return false;
-      }
+      }*/
+      if(this.userRolesHeroku!.indexOf('adminRole') >= 0) return true;
+      return false;
     }
     
 }

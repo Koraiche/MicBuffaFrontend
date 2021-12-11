@@ -34,8 +34,9 @@ export class LoginComponent implements OnInit {
     
     
     const password:any = this.loginForm.get('password')?.value;
-    
-    this.auth.login(email, password).then(
+    this.auth.login(email, password);
+    /*
+    this.auth.loginOnServer(email, password).then(
       () => {
         this.loading = false;
         this.router.navigate(['/']);
@@ -45,7 +46,7 @@ export class LoginComponent implements OnInit {
         this.loading = false;
         this.errorMessage = error.message;
       }
-    );
+    );*/
   }
 
 }
