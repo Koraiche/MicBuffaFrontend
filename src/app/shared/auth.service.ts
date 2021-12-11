@@ -15,7 +15,7 @@ export class AuthService {
   userHeroku? :User;
     token!: string;
     userId!: string;
-    userName!: string;
+    userName?: string;
     userRoles!: Array<any>;
     public supplier$ = new Subject<User[]>();
     constructor(private router: Router,
@@ -69,10 +69,10 @@ export class AuthService {
             this.userRolesHeroku = element.roles;
             this.isAuth$.next(true);
             this.router.navigate(['/assignments']);
-          }else{
-            this.router.navigate(['/signup']);
+            return;
           }
         });
+        this.router.navigate(['/signup']);
     }
     loginOnServer(email: string, password: string) {
         console.log(email);console.log(password);
@@ -101,7 +101,7 @@ export class AuthService {
       this.isAuth$.next(false);
       this.userId = 'null';
       this.token = 'null';
-      this.userName = 'null';
+      this.userName = undefined;
       this.loggedHeroku = false;
       this.userHeroku = undefined;
       this.router.navigate(['/login']);
