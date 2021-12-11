@@ -20,9 +20,12 @@ export class AuthService {
     public supplier$ = new Subject<User[]>();
     constructor(private router: Router,
                 private http: HttpClient) {
-                  let u  = new User('Michel','Buffa','Mic@gmail.com','123456789')
-                  u.roles.push('adminRole');
-                  this.usersHeroku!.push(u);
+                  let u1  = new User('Michel','Buffa','Mic@gmail.com','123456789');
+                  u1.roles.push('adminRole');//admin
+                  let u2  = new User('Fahd','Koraiche','Naoufel@gmail.com','123456789');//user
+                  
+                  this.usersHeroku!.push(u1);
+                  this.usersHeroku!.push(u2);
                   
                 }
                 isAuth(){/*
@@ -68,11 +71,10 @@ export class AuthService {
             this.loggedHeroku= true;
             this.userRolesHeroku = element.roles;
             this.isAuth$.next(true);
-            this.router.navigate(['/assignments']);
             return;
           }
         });
-        this.router.navigate(['/signup']);
+
     }
     loginOnServer(email: string, password: string) {
         console.log(email);console.log(password);
