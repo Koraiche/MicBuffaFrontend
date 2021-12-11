@@ -1,0 +1,27 @@
+
+<div class=" col-md-offset-4 container jumbotron col-md-4 img-rounded cc">
+  <div class="row">
+    <div class=" col-md-offset-1 col-md-10">
+      <h1 class="text-center">Login</h1>
+        <div class="" *ngIf="!loading">
+          <form [formGroup]="loginForm">
+            <div class="form-group ">
+              <label for="email">Adresse mail</label>
+              <input type="email" id="email" formControlName="email" class="form-control ">
+            </div>
+            <div class="form-group">
+              <label for="password">Mot de passe</label>
+              <input type="password" id="password" formControlName="password" class="form-control ">
+            </div>
+
+            
+            <button class="btn btn-success"  mat-flat-button color="accent" (click)="onLogin()" type="button" [disabled]="loginForm.invalid">Connexion</button>
+          </form>
+          <p>{{ errorMessage }}</p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!--
+<mat-spinner *ngIf="loading "></mat-spinner>-->

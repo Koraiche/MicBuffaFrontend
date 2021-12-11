@@ -1,0 +1,10 @@
+<!--<div *ngIf="!isAuth()" class="container jumbotron img-rounded m-4">-->
+    <div *ngIf="1" class="container jumbotron img-rounded m-4">
+    <h1>EmsiBasket Commercials</h1>
+    <p class="container" >   we offer the most credible servies in the country, you can find all the products you may think of, register now! and start filling your basket...</p>
+    <p><a mat-flat-button color="accent" routerLink="/signup">Register</a></p>
+</div>
+<div *ngIf="isAuth()" class="container jumbotron img-rounded m-4">
+    <h1>Welcome!</h1>
+    <p class="container" > Our market is waiting for you, go now and seize the day!</p>
+</div>

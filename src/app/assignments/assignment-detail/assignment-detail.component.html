@@ -1,0 +1,16 @@
+<div class="container jumbotron mt-4"><mat-card *ngIf="assignmentTransmis">
+  <mat-card-title>{{assignmentTransmis.nom}}</mat-card-title>
+  <mat-card-subtitle>{{assignmentTransmis.dateDeRendu | date}}</mat-card-subtitle>
+  <div id="bottom" style="font-size:1em;">
+    <mat-card-subtitle *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()">
+      <button mat-raised-button color="warn">Non Rendu</button>
+    </mat-card-subtitle>
+
+        <button mat-raised-button color="primary" (click)="onClickEdit()"
+        [disabled]="!isAdmin()">
+          EDIT
+        </button>
+    <!--<button mat-raised-button color="warn" (click)="onDelete()">DELETE</button>-->
+  </div>
+</mat-card>
+</div>
