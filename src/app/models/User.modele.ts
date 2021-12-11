@@ -4,13 +4,15 @@ export class User {
     lastName: string;
     email: string;
     password: string;
-    roles: [];
-    constructor(){
+    roles: string[] = [];
+
+    constructor(fn:string, ln:string,em:string,pwd:string){
       this._id='0';
-      this.firstName = '';
-      this.lastName = "";
-      this.email = "";
-      this.password = "";
-      this.roles = [];
+      this.firstName = fn;
+      this.lastName = ln;
+      this.email = em;
+      this.password = pwd;
+      this.roles.push('userRole');
     }
   }
+  

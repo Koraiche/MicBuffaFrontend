@@ -9,6 +9,10 @@ import { User } from '../models/User.modele';
 })
 export class AuthService {
   isAuth$ = new BehaviorSubject<boolean>(false);
+  usersHeroku:User[] = [];
+  loggedHeroku = false;
+  userRolesHeroku?:any[];
+  userHeroku? :User;
     token!: string;
     userId!: string;
     userName!: string;
@@ -20,7 +24,7 @@ export class AuthService {
                   if(this.token!=null) return true;
                   return false;
                 }
-    createNewUser(firstName: string, lastName: string, email: string, password: string): any {
+    createNewUserOnServer(firstName: string, lastName: string, email: string, password: string): any {
       console.log(firstName + lastName + email + password);
       return new Promise<void>((resolve, reject) => {
         this.http.post(
@@ -29,12 +33,12 @@ export class AuthService {
           { firstName: firstName, lastName: lastName, email: email, password: password })
           .subscribe(
             () => {
-              this.login(email, password).then(
+              this.loginOnServer(email, password).then(
                 () => {
                   resolve();
                 }
               ).catch(
-                (error) => {
+                (error:any) => {
                   reject(error);
                 }
               );
@@ -45,8 +49,19 @@ export class AuthService {
           );
       });
     }
-    
+    createNewUser(firstName: string, lastName: string, email: string, password: string): any {
+      this.usersHeroku.push(new User(firstName=firstName,lastName=lastName,email=email,password=password))
+    }
     login(email: string, password: string) {
+        this.usersHeroku.forEach(element => {
+          if(element.email==email && element.password==password)
+            this.userHeroku= element;
+            this.loggedHeroku= true;
+            this.userRolesHeroku = element.roles;
+            return;
+        });
+    }
+    loginOnServer(email: string, password: string) {
         console.log(email);console.log(password);
       return new Promise<void>((resolve, reject) => {
         this.http.post(
@@ -74,6 +89,8 @@ export class AuthService {
       this.userId = 'null';
       this.token = 'null';
       this.userName = 'null';
+      this.loggedHeroku = false;
+      this.userHeroku = undefined;
       this.router.navigate(['/login']);
     }
     isAdmin(){
