@@ -15,7 +15,7 @@ export class AuthService {
   userHeroku? :User;
     token!: string;
     userId!: string;
-    userName?: string;
+    userName: string='X';
     userRoles!: Array<any>;
     public supplier$ = new Subject<User[]>();
     constructor(private router: Router,
@@ -101,7 +101,7 @@ export class AuthService {
       this.isAuth$.next(false);
       this.userId = 'null';
       this.token = 'null';
-      this.userName = undefined;
+      this.userName = 'X';
       this.loggedHeroku = false;
       this.userHeroku = undefined;
       this.router.navigate(['/login']);

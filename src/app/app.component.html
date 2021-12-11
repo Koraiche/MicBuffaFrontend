@@ -23,7 +23,7 @@
             
           </ul>
           <ul class="nav navbar-nav navbar-right navbar-dark ">
-            <li class="nav-item" *ngIf="getUser()!=null"><a  class="nav-link" routerLink="/login" >{{ getUser() }}</a></li>
+            <li class="nav-item" *ngIf="getUser()!='X'"><a  class="nav-link" routerLink="/login" >{{ getUser() }}</a></li>
             <li class="nav-item"><a class="nav-link"routerLink="/signup" *ngIf="!isAuth()">Sign up!</a></li>
             <li class="nav-item"><a class="nav-link" (click)="logOut()" *ngIf="isAuth()" >Logout</a></li>
           </ul>
