@@ -62,12 +62,14 @@ export class AuthService {
     }
     login(email: string, password: string) {
         this.usersHeroku.forEach(element => {
-          if(element.email==email && element.password==password)
+          if(element.email==email && element.password==password){
             this.userHeroku= element;
             this.loggedHeroku= true;
             this.userRolesHeroku = element.roles;
             this.isAuth$.next(true);
-            return;
+            this.router.navigate(['/assignments']);
+          }
+            this.router.navigate(['/login']);
         });
     }
     loginOnServer(email: string, password: string) {
