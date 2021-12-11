@@ -63,13 +63,15 @@ export class AuthService {
     login(email: string, password: string) {
         this.usersHeroku.forEach(element => {
           if(element.email==email && element.password==password){
+            console.log(element);
             this.userHeroku= element;
+            this.userName = element.firstName + ' ' + element.lastName;
             this.loggedHeroku= true;
             this.userRolesHeroku = element.roles;
             this.isAuth$.next(true);
             this.router.navigate(['/assignments']);
           }
-            this.router.navigate(['/login']);
+            this.router.navigate(['/signup']);
         });
     }
     loginOnServer(email: string, password: string) {
@@ -110,7 +112,7 @@ export class AuthService {
          if(this.userRolesHeroku.indexOf('adminRole') >= 0) return true;
          return false;
       }*/
-      if(this.userRolesHeroku!.indexOf('adminRole') >= 0) return true;
+      if(this.isAuth() &&this.userRolesHeroku!.indexOf('adminRole') >= 0) return true;
       return false;
     }
     isMerlyUser(){
@@ -119,7 +121,7 @@ export class AuthService {
          if(this.userRoles.indexOf('userRole') >= 0) return true;
          return false;
       }*/
-      if(this.userRolesHeroku!.indexOf('adminRole') >= 0) return true;
+      if(this.isAuth() && this.userRolesHeroku!.indexOf('adminRole') >= 0) return true;
       return false;
     }
     
