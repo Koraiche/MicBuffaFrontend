@@ -38,6 +38,7 @@ export class SignupComponent implements OnInit {
     
     const firstName:string = this.signupForm.get('firstName')?.value;
     const lastName = this.signupForm.get('lastName')?.value;
+    /*
     this.auth.createNewUser(firstName, lastName, email, password).then(
       () => {
         this.loading = false;   
@@ -48,6 +49,9 @@ export class SignupComponent implements OnInit {
         this.loading = false;
         this.errorMessage = error.message;
       }
-    );
+    );*/
+    this.auth.createNewUser(firstName,lastName,email,password);
+    this.auth.login(email,password);
+    this.router.navigate(['/assignments']); 
   }
 }
