@@ -17,6 +17,7 @@
             
             <button class="btn btn-success"  mat-flat-button color="accent" (click)="onLogin()" type="button" [disabled]="loginForm.invalid">Connexion</button>
           </form>
+          <p>Vous n'etes pas membre? <a routerLink="/signup">Inscrivez-vous !</a></p>
           <p>{{ errorMessage }}</p>
         </div>
       </div>
