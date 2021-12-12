@@ -1,3 +1,5 @@
+<div class="container mt-4">
+  <mat-card>
 <form ngForm #assignmentForm class="form" (submit)="onSubmit(); assignmentForm.reset();">
   <mat-form-field>
     <mat-label>Nom de l'assignment</mat-label>
@@ -12,7 +14,10 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
-  <button mat-stroked-button color="primary">
+  <button mat-stroked-button color="accent">
     Ajouter un devoir
   </button>
 </form>
+
+</mat-card>
+</div>

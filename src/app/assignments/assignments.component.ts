@@ -86,7 +86,7 @@ announceSortChange(sortState: Sort) {
       this.page = data.page;
        this.limit = data.limit;
 
-       this.length = data.totalPages;
+       this.length = data.totalDocs;
        this.pageSize = 5;
 
        this.totalDocs = data.totalDocs;
