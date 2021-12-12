@@ -1,6 +1,7 @@
 <div class=" col-md-offset-4 container jumbotron col-md-4 img-rounded">
     <div class="row">
-        <div class=" col-md-offset-1 col-md-10">
+        <div class=" col-md-offset-1 col-md-10 mt-4">
+          <mat-card>
               <h1 class="text-center">Signup</h1>
                 <div *ngIf="!loading">
                         <form [formGroup]="signupForm">
@@ -24,6 +25,7 @@
                         </form>
                     <p>{{ errorMessage }}</p>
                 </div>
+              </mat-card>
         </div>
     </div>
 </div>
