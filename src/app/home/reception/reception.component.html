@@ -1,10 +1,14 @@
-<!--<div *ngIf="!isAuth()" class="container jumbotron img-rounded m-4">-->
-    <div *ngIf="1" class="container jumbotron img-rounded m-4">
-    <h1>EmsiAssignments App</h1>
-    <p class="container" >   we offer the most credible servies in the country, you can find all the assignments you may think of, register now! and start acheiving your tasks...</p>
-    <p><a mat-flat-button color="accent" routerLink="/signup">Register</a></p>
-</div>
-<div *ngIf="isAuth()" class="container jumbotron img-rounded m-4">
-    <h1>Welcome!</h1>
-    <p class="container" > Our market is waiting for you, go now and seize the day!</p>
-</div>
+<div class="container jumbotron mt-4">
+<mat-card >
+    <mat-card-title><h1>EmsiAssignments App</h1></mat-card-title>
+    <mat-card-subtitle>Welcome!</mat-card-subtitle>
+    <div id="bottom" style="font-size:1em;">
+      <mat-card-subtitle >
+        we offer the most credible servies in the country, you can find all the assignments you may think of, register now! and start acheiving your tasks...
+      </mat-card-subtitle>
+  
+      <p><a mat-flat-button color="accent" routerLink="/signup">Register</a></p>
+      <!--<button mat-raised-button color="warn" (click)="onDelete()">DELETE</button>-->
+    </div>
+  </mat-card>
+  </div>

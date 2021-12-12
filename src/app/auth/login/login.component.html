@@ -4,6 +4,7 @@
     <div class=" col-md-offset-1 col-md-10">
       <h1 class="text-center">Login</h1>
         <div class="" *ngIf="!loading">
+        <mat-card>
           <form [formGroup]="loginForm">
             <div class="form-group ">
               <label for="email">Adresse mail</label>
@@ -17,6 +18,7 @@
             
             <button class="btn btn-success"  mat-flat-button color="accent" (click)="onLogin()" type="button" [disabled]="loginForm.invalid">Connexion</button>
           </form>
+        </mat-card>
           <p>Vous n'etes pas membre? <a routerLink="/signup">Inscrivez-vous !</a></p>
           <p>{{ errorMessage }}</p>
         </div>
