@@ -2,7 +2,7 @@
 Done by Fahd KORAICHE & Naoufal REMZAN
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
 
-##1.
+## 1.
 On a ajouté bootstrap et un navbar contenant toutes les routes accesibles au utilisateurs connecté(selon son role+droits).
 ##2.
 On a Rendu la présentation plus jolie, notamment  les assignments dans une table angular material, avec l'élément paginator pour faire la pagination.
