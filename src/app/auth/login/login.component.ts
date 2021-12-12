@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     const password:any = this.loginForm.get('password')?.value;
     this.auth.login(email, password);
     if(this.auth.isAuth())this.router.navigate(['/assignments']);
-    else this.router.navigate(['/login']);
+    else this.router.navigate(['/signup']);
     /*
     this.auth.loginOnServer(email, password).then(
       () => {

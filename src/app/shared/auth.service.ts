@@ -15,9 +15,9 @@ export class AuthService {
   userHeroku? :User;
     token!: string;
     userId!: string;
-    userName: string='X';
+    userName: string='Login';
     userRoles!: Array<any>;
-    public supplier$ = new Subject<User[]>();
+    //public supplier$ = new Subject<User[]>();
     constructor(private router: Router,
                 private http: HttpClient) {
                   let u1  = new User('Michel','Buffa','Mic@gmail.com','123456789');
@@ -26,6 +26,7 @@ export class AuthService {
                   
                   this.usersHeroku!.push(u1);
                   this.usersHeroku!.push(u2);
+                  this.userName = 'Login';
                   
                 }
                 isAuth(){/*
@@ -103,7 +104,7 @@ export class AuthService {
       this.isAuth$.next(false);
       this.userId = 'null';
       this.token = 'null';
-      this.userName = 'X';
+      this.userName = 'Login';
       this.loggedHeroku = false;
       this.userHeroku = undefined;
       this.router.navigate(['/login']);
@@ -123,7 +124,7 @@ export class AuthService {
          if(this.userRoles.indexOf('userRole') >= 0) return true;
          return false;
       }*/
-      if(this.isAuth() && this.userRolesHeroku!.indexOf('adminRole') >= 0) return true;
+      if(this.isAuth() && this.userRolesHeroku!.indexOf('userRole') >= 0) return true;
       return false;
     }
     

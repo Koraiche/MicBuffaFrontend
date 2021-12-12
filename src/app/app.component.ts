@@ -25,9 +25,8 @@ export class AppComponent {
    // }
   }
   getUser(){
-    this.user = this.authService.userName;
-    if(this.user) return this.user;
-    else return 'Login';
+    return  this.authService.userName;
+    
     
   }
   isAuth(){
